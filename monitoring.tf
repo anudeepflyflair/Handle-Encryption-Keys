@@ -50,6 +50,9 @@ resource "aws_cloudtrail" "payment_processing_trail" {
   enable_logging                = true
 }
 
+# Declare the aws_caller_identity data source
+data "aws_caller_identity" "current" {}
+
 # S3 Bucket to store CloudTrail logs
 resource "aws_s3_bucket" "cloudtrail_bucket" {
   bucket = "${var.project_name}-cloudtrail-logs"
