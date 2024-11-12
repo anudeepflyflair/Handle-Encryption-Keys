@@ -12,7 +12,7 @@ resource "aws_lambda_function" "payment_processing_lambda" {
   environment {
     variables = {
       ISSUER                   = "payroc"                      # Unique identifier for the payment system
-      AUDIENCE                 = "payment-gateway.example.com" # Replace with actual DNS
+      AUDIENCE                 = "payment-gateway-api" # Replace with actual DNS or api gateway URL/name
       JWT_SIGNING_KEY_ALIAS    = aws_kms_alias.jwt_signing_key_alias.arn
       JWT_ENCRYPTION_KEY_ALIAS = aws_kms_alias.encryption_key_alias.arn
     }
